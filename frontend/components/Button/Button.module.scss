@@ -1,0 +1,21 @@
+@use '../../styles//typography' as *;
+
+.button {
+  background-color: var(--primary-color-1);
+  outline: none;
+  color: var(--primary-color-4);
+  cursor: pointer;
+  width: 182px;
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--primary-color-1);
+  border-radius: 6px;
+  @include h7Web;
+  &:hover {
+    background-color: var(--primary-color-3);
+    border: 1px solid var(--primary-color-3);
+    transition: all 0.3s;
+  }
+}
