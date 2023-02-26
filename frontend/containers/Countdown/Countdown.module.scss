@@ -1,0 +1,75 @@
+@use '../../styles/typography' as *;
+
+.container {
+  --padding: 20px;
+  .wrapper {
+    max-width: calc(1170px + var(--padding) * 2);
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+    margin: 0 auto;
+    padding-top: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and (max-width: 1140px) {
+      flex-direction: column-reverse;
+      align-items: unset;
+    }
+    .counts {
+      display: flex;
+      column-gap: min(calc(70 / 1440 * 100vw), 70px);
+      row-gap: 35px;
+      flex-wrap: wrap;
+      @media screen and (max-width: 1140px) {
+        flex-wrap: nowrap;
+        column-gap: min(calc(35 / 1440 * 100vw), 35px);
+      }
+      @media screen and (max-width: 768px) {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .count {
+        max-width: 241px;
+        .number {
+          @include h2Web;
+        }
+        .title {
+          @include h6Web;
+          margin-top: 6px;
+          margin-bottom: 10px;
+        }
+        .description {
+          @include p2Web;
+        }
+      }
+    }
+    .signatureBox {
+      max-width: 461px;
+      width: 100%;
+      position: relative;
+      @media screen and (max-width: 1140px) {
+        margin-bottom: 50px;
+      }
+      h2 {
+        @include h2Web;
+      }
+      .sign {
+        @include h1SpecWeb;
+        color: var(--primary-color-1);
+        margin-top: 48px;
+        margin-bottom: 4px;
+      }
+      .name {
+        @include p3Web;
+        .fullName {
+          @include h7Web;
+        }
+      }
+      .ellipse3 {
+        position: absolute;
+        top: 275px;
+        right: min(calc(94 / 1440 * 100vw), 94px);
+      }
+    }
+  }
+}
