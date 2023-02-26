@@ -15,6 +15,9 @@
       flex-direction: column-reverse;
       align-items: unset;
     }
+    @media screen and (max-width: 768px) {
+      padding-top: 70px;
+    }
     .counts {
       display: flex;
       column-gap: min(calc(70 / 1440 * 100vw), 70px);
@@ -30,16 +33,31 @@
       }
       .count {
         max-width: 241px;
+        @media screen and (max-width: 567px) {
+          max-width: max(calc(157 / 375 * 100vw), 157px);
+        }
         .number {
           @include h2Web;
+          color: var(--text-color-1);
+          @media screen and (max-width: 768px) {
+            @include h2Mobile;
+          }
         }
         .title {
           @include h6Web;
           margin-top: 6px;
           margin-bottom: 10px;
+          color: var(--text-color-1);
+          @media screen and (max-width: 768px) {
+            @include h5Mobile;
+          }
         }
         .description {
           @include p2Web;
+          color: var(--text-color-2);
+          @media screen and (max-width: 768px) {
+            @include p2Mobile;
+          }
         }
       }
     }
@@ -52,23 +70,44 @@
       }
       h2 {
         @include h2Web;
+        color: var(--text-color-1);
+        @media screen and (max-width: 768px) {
+          @include h2Mobile;
+        }
       }
       .sign {
         @include h1SpecWeb;
         color: var(--primary-color-1);
         margin-top: 48px;
         margin-bottom: 4px;
+        @media screen and (max-width: 768px) {
+          margin-top: 28px;
+          margin-bottom: 0;
+          @include h1SpecMobile;
+        }
       }
       .name {
         @include p3Web;
+        color: var(--text-color-2);
         .fullName {
           @include h7Web;
+          color: var(--text-color-1);
+        }
+        @media screen and (max-width: 768px) {
+          @include p2Mobile;
+          .fullName {
+            @include h4MobileBold;
+          }
         }
       }
       .ellipse3 {
         position: absolute;
         top: 275px;
         right: min(calc(94 / 1440 * 100vw), 94px);
+        @media screen and (max-width: 768px) {
+          @include h5Mobile;
+          top: 120px;
+        }
       }
     }
   }

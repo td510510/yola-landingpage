@@ -5,6 +5,9 @@
   position: relative;
   height: 100vh;
   --padding: 20px;
+  @media screen and (max-width: 768px) {
+    padding-top: 22px;
+  }
   .shape {
     position: absolute;
     z-index: -1;
