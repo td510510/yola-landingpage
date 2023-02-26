@@ -14,6 +14,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media screen and (max-width: 768px) {
+      box-shadow: none;
+      height: 31px;
+    }
     .left {
       display: flex;
       justify-content: space-between;
