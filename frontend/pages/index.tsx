@@ -2,6 +2,9 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.scss'
 import Hero from '@/containers/Hero'
 import Countdown from '@/containers/Countdown'
+import Features from '@/containers/Features'
+import Courses from '@/containers/Courses'
+import Pricing from '@/containers/Pricing'
 
 
 export default function Home() {
@@ -15,6 +18,9 @@ export default function Home() {
       </Head>
       <Hero />
       <Countdown />
+      <Features />
+      <Courses />
+      <Pricing />
       <main className={styles.main}>
       </main>
     </>

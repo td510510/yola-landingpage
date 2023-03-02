@@ -1,0 +1,194 @@
+@use '../../styles/typography' as *;
+
+.container {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  --padding: 20px;
+  background-color: var(--other-color-1);
+  @media screen and (max-width: 1140px) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  @media screen and (max-width: 768px) {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .wrapper {
+    max-width: calc(1170px + var(--padding) * 2);
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+    width: 100%;
+    margin: 0 auto;
+    h2 {
+      @include h2Web;
+      margin-bottom: 18px;
+      text-align: center;
+      color: var(--text-color-1);
+      @media screen and (max-width: 768px) {
+        @include h2Mobile;
+      }
+    }
+    p {
+      @include p2Web;
+      max-width: 398px;
+      margin: 0 auto;
+      text-align: center;
+      color: var(--text-color-2);
+      @media screen and (max-width: 768px) {
+        @include p1Mobile;
+      }
+      margin-bottom: 70px;
+    }
+    .cards {
+      display: flex;
+      justify-content: space-between;
+      gap: min(calc(33 / 1440 * 100vw), 33px);
+      @media screen and (max-width: 950px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .card {
+        max-width: 368px;
+        height: 668px;
+        background-color: var(--primary-color-4);
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        @media screen and (max-width: 950px) {
+          width: 368px;
+        }
+        @media screen and (max-width: 768px) {
+          max-width: 339px;
+          width: 100%;
+          height: 558px;
+        }
+        .detail {
+          padding-top: 35px;
+          padding-bottom: 36px;
+          text-align: center;
+          border-bottom: 2px solid var(--other-color-5);
+          @media screen and (max-width: 768px) {
+            padding-top: 11px;
+            padding-bottom: 22px;
+          }
+          .subTitle {
+            @include h9Web;
+            color: var(--primary-color-4);
+            height: 24px;
+            @media screen and (max-width: 768px) {
+              @include h6Mobile;
+            }
+          }
+          h5 {
+            @include h5WebMedium;
+            margin-bottom: 10px;
+            color: var(--text-color-1);
+            @media screen and (max-width: 768px) {
+              @include h4MobileMed;
+            }
+          }
+          .price {
+            @include h3Web;
+            color: var(--text-color-1);
+            @media screen and (max-width: 768px) {
+              @include h3Mobile;
+            }
+          }
+          &.recommend {
+            background-color: var(--primary-color-1);
+            h5 {
+              color: var(--primary-color-4);
+            }
+            .price {
+              color: var(--primary-color-4);
+            }
+          }
+        }
+        .description {
+          padding-top: 18px;
+          padding-bottom: 30px;
+          padding-left: min(calc(30 / 1440 * 100vw), 30px);
+          padding-right: min(calc(30 / 1440 * 100vw), 30px);
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          .subTitle {
+            text-align: center;
+            @include p3Web;
+            color: var(--text-color-2);
+            margin-bottom: 26px;
+            @media screen and (max-width: 768px) {
+              @include p1Mobile;
+              margin-bottom: 17px;
+            }
+          }
+          ul {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            li {
+              height: 62px;
+              display: flex;
+              align-items: center;
+              border: 1px solid var(--other-color-5);
+              color: var(--text-color-2);
+              @include p2Web;
+              @media screen and (max-width: 768px) {
+                @include p1Mobile;
+              }
+              .tickIcon {
+                width: 28px;
+                height: 28px;
+                margin-right: 16px;
+                margin-left: 16px;
+                @media screen and (max-width: 768px) {
+                  width: 16px;
+                  height: 16px;
+                  margin-right: 14px;
+                  margin-left: 14px;
+                }
+              }
+            }
+          }
+          .button {
+            height: 50px;
+            border: 1px solid var(--primary-color-1);
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: auto;
+            cursor: pointer;
+            transition: all 0.3s;
+            @include h8Web;
+            color: var(--primary-color-1);
+            @media screen and (max-width: 768px) {
+              @include h4MobileSemi;
+            }
+            &:hover {
+              background-color: var(--primary-color-1);
+              color: var(--primary-color-4);
+              .arrowBox {
+                background-color: var(--primary-color-3);
+              }
+            }
+            .arrowBox {
+              background-color: var(--primary-color-1);
+              height: 100%;
+              width: 50px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: absolute;
+              top: 0;
+              right: 0;
+              transition: all 0.3s;
+            }
+          }
+        }
+      }
+    }
+  }
+}

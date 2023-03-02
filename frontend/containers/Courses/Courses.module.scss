@@ -1,0 +1,142 @@
+@use '../../styles/typography' as *;
+
+.container {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  --padding: 20px;
+  @media screen and (max-width: 1140px) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  @media screen and (max-width: 768px) {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .wrapper {
+    max-width: calc(1170px + var(--padding) * 2);
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+    width: 100%;
+    margin: 0 auto;
+    h2 {
+      @include h2Web;
+      margin-bottom: 18px;
+      text-align: center;
+      color: var(--text-color-1);
+      @media screen and (max-width: 768px) {
+        @include h2Mobile;
+      }
+    }
+    p {
+      @include p2Web;
+      max-width: 479px;
+      margin: 0 auto;
+      text-align: center;
+      color: var(--text-color-2);
+      @media screen and (max-width: 768px) {
+        @include p1Mobile;
+      }
+    }
+    .courses {
+      margin-top: 70px;
+      margin-bottom: 55px;
+      display: flex;
+      justify-content: space-between;
+      @media screen and (max-width: 550px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .course {
+        max-width: 368px;
+        padding-left: min(calc(28 / 1440 * 100vw), 28px);
+        padding-right: min(calc(28 / 1440 * 100vw), 28px);
+        padding-bottom: 34px;
+        border-radius: 14px;
+        transition: all 0.3s;
+        cursor: pointer;
+        @media screen and (max-width: 550px) {
+          padding-left: 17px;
+          padding-right: 17px;
+          box-shadow: 0px 18px 36px rgba(0, 0, 0, 0.07);
+        }
+        &:hover {
+          box-shadow: 0px 18px 36px rgba(0, 0, 0, 0.07);
+        }
+        h6 {
+          @include h6WebSemi;
+          margin-top: 24px;
+          margin-bottom: 12px;
+          color: var(--text-color-1);
+          @media screen and (max-width: 768px) {
+            @include h4MobileSemi;
+          }
+        }
+        p {
+          text-align: left;
+          @include p3Web;
+          color: var(--text-color-2);
+          margin-bottom: 22px;
+          @media screen and (max-width: 768px) {
+            @include p1Mobile;
+          }
+        }
+        .information {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          @media screen and (max-width: 900px) {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          @media screen and (max-width: 550px) {
+            flex-direction: row;
+            align-items: center;
+          }
+          .rating {
+            display: flex;
+            align-items: center;
+            .star {
+              color: transparent;
+              margin-right: 7px;
+              width: 16px;
+              @media screen and (max-width: 768px) {
+                width: 12px;
+              }
+              &.filled {
+                color: #ff9f66;
+              }
+            }
+            .totalRating {
+              @include p3Web;
+              @media screen and (max-width: 768px) {
+                @include p1Mobile;
+              }
+            }
+          }
+          .getStarted {
+            @include h9Web;
+            transition: color 0.3s;
+            &:hover {
+              color: var(--primary-color-1);
+            }
+            @media screen and (max-width: 768px) {
+              @include h5Mobile;
+            }
+          }
+        }
+      }
+    }
+    .button {
+      width: 140px;
+      height: 48px;
+      margin: 0 auto;
+      @include h8Web;
+      @media screen and (max-width: 768px) {
+        width: 124px;
+        height: 42px;
+        @include h5Mobile;
+      }
+    }
+  }
+}
