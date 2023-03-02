@@ -35,7 +35,7 @@ const Courses = () => {
           {
             courses.map((course: { image: string, title: string, description: string, rating: number, totalRating: number }, i) => (
               <div className={styles.course} key={`course-${i}`}>
-                <img src={course.image} />
+                <img src={course.image} alt={course.title} />
                 <h6>{course.title}</h6>
                 <p>{course.description}</p>
                 <div className={styles.information}>
