@@ -129,6 +129,10 @@
     border-radius: 0 0 0 20px;
     background-color: var(--primary-color-2);
     transition: all 0.25s;
+    display: none;
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
     li {
       @include p2Web;
       padding: 10px 0;

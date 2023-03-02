@@ -9,19 +9,19 @@ const Countdown = () => {
       description: 'We are 05 years of experienced in this yoga field. Giving the best instructions.'
     },
     {
-      number: '05+',
-      title: 'Years of Experience',
-      description: 'We are 05 years of experienced in this yoga field. Giving the best instructions.'
+      number: '5K+',
+      title: 'Happy Clients',
+      description: 'We have over five thousand clients all over the world. They are very satisfied.'
     },
     {
-      number: '05+',
-      title: 'Years of Experience',
-      description: 'We are 05 years of experienced in this yoga field. Giving the best instructions.'
+      number: '15+',
+      title: 'Experienced Trainer',
+      description: 'We have over fifteen dedicated and experienced trainer for yoga and meditation.'
     },
     {
-      number: '05+',
-      title: 'Years of Experience',
-      description: 'We are 05 years of experienced in this yoga field. Giving the best instructions.'
+      number: '24+',
+      title: 'Monthly Classes',
+      description: 'Yoga is a physical, mental and spiritual practice discipline. We provide 24+ classes monthly.'
     },
   ]
   return (
@@ -39,7 +39,7 @@ const Countdown = () => {
           }
         </div>
         <div className={styles.signatureBox}>
-          <h2>Relaxe And Enjoy a Personalized Day Yoga With Us.</h2>
+          <h2>Relaxed And Enjoy a Personalized Day Yoga With Us.</h2>
           <div className={styles.sign}>John Cena</div>
           <div className={styles.name}>
             <span className={styles.fullName}>John Cena </span>
