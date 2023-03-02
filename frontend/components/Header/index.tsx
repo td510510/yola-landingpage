@@ -1,15 +1,20 @@
 import Image from 'next/image'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import useOnClickOutside from '@/hooks/useOnClickOutside'
+import toggleScroll from '@/utils/toggleScroll'
 import Button from '../Button'
-import styles from './Header.module.scss'
 import HamBurger from '../../public/svg/menu.svg'
 import CloseIcon from '../../public/svg/close-menu.svg'
+import styles from './Header.module.scss'
 
 const Header = () => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false)
   const mobileMenuRef = useRef(null)
   useOnClickOutside(mobileMenuRef, () => setIsShowMobileMenu(false))
+
+  useEffect(() => {
+    toggleScroll(isShowMobileMenu)
+  }, [isShowMobileMenu])
 
   const showMobileMenu = () => {
     setIsShowMobileMenu(true)

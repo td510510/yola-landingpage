@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from 'react'
 import Button from '@/components/Button'
 import useOnClickOutside from '@/hooks/useOnClickOutside'
-import styles from './Features.module.scss'
+import toggleScroll from '@/utils/toggleScroll'
 import PlayIcon from '../../public/svg/play.svg'
+import styles from './Features.module.scss'
 
 const Features = () => {
   const [isPlayingVideo, setIsPlayingVideo] = useState<boolean>(false)
@@ -13,15 +14,6 @@ const Features = () => {
     setIsPlayingVideo(true)
     if (videoRef && videoRef.current) {
       videoRef.current.play()
-    }
-  }
-
-  const toggleScroll = (isPlayingVideo: boolean) => {
-    const html = document.querySelector('html') as HTMLElement
-    if (isPlayingVideo) {
-      html.style.overflowY = 'hidden';
-    } else {
-      html.style.overflowY = 'unset';
     }
   }
 

@@ -18,6 +18,8 @@
     padding-right: var(--padding);
     width: 100%;
     margin: 0 auto;
+    background-image: url('/images/course-background.png');
+    background-size: cover;
     h2 {
       @include h2Web;
       margin-bottom: 18px;

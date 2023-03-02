@@ -1,0 +1,202 @@
+@use '../../styles/typography' as *;
+
+.container {
+  padding-top: 150px;
+  padding-bottom: 25px;
+  --padding: 20px;
+  background-color: var(--primary-color-4);
+  background-image: url('/images/footer-background.png');
+  background-size: min(calc(1170 / 1440 * 100vw), 1170vw) 550px;
+  background-repeat: no-repeat;
+  background-position: 0 200px;
+  @media screen and (max-width: 1140px) {
+    padding-top: 70px;
+  }
+  @media screen and (max-width: 768px) {
+    background-size: min(calc(1170 / 1440 * 100vw), 1170vw) 350px;
+    background-position: 0 55px;
+  }
+  .wrapper {
+    max-width: calc(1170px + var(--padding) * 2);
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+    width: 100%;
+    margin: 0 auto;
+    .box {
+      display: flex;
+      margin-bottom: 122px;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        margin-bottom: 38px;
+      }
+      .contents {
+        max-width: 484px;
+        margin-left: min(calc(48 / 1440 * 100vw), 48px);
+        margin-right: min(calc(74 / 1440 * 100vw), 74px);
+        margin-top: 280px;
+        @media screen and (max-width: 768px) {
+          margin-top: 0;
+        }
+        h2 {
+          @include h2Web;
+          margin-bottom: 26px;
+          color: var(--text-color-1);
+          @media screen and (max-width: 768px) {
+            @include h2Mobile;
+          }
+        }
+        p {
+          @include p1Web;
+          color: var(--text-color-2);
+          @media screen and (max-width: 768px) {
+            @include p1Mobile;
+          }
+        }
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding: 45px min(calc(40 / 1440 * 100vw), 40px);
+        background: var(--primary-color-4);
+        box-shadow: 0px 80.6px 105.701px rgba(51, 51, 51, 0.1);
+        border-radius: 20px;
+        input {
+          height: 60px;
+          margin-bottom: 20px;
+          border: 1px solid var(--other-color-4);
+          border-radius: 5px;
+          padding: 17px 25px;
+          outline: none;
+          @include p2Web;
+          @media screen and (max-width: 768px) {
+            @include p2Mobile;
+            height: 38px;
+            padding: 8px 12px;
+          }
+          color: var(--text-color-2);
+          &[type='checkbox'] {
+            width: 22px;
+            height: 22px;
+            margin-bottom: unset;
+            margin-right: 12px;
+            padding: unset;
+            appearance: none;
+            position: relative;
+            @media screen and (max-width: 768px) {
+              margin-right: 6px;
+              width: 12px;
+              height: 12px;
+              border-radius: 2px;
+            }
+            &::before {
+              content: '';
+              position: absolute;
+              width: 18px;
+              height: 18px;
+              flex-grow: 1;
+              clip-path: polygon(
+                14% 44%,
+                0 65%,
+                50% 100%,
+                100% 16%,
+                80% 0%,
+                43% 62%
+              );
+              transform: scale(0);
+              transform-origin: bottom left;
+              transition: 120ms transform ease-in-out;
+              background-color: var(--primary-color-1);
+              @media screen and (max-width: 768px) {
+                margin-right: 6px;
+                width: 10px;
+                height: 10px;
+              }
+            }
+            &:checked::before {
+              transform: scale(1);
+            }
+          }
+        }
+        .checkboxGroup {
+          display: grid;
+          grid-template-columns: 5fr 95fr;
+          align-items: center;
+          margin-top: 22px;
+          label {
+            @include p2Web;
+            color: var(--text-color-2);
+            @media screen and (max-width: 768px) {
+              @include p2Mobile;
+            }
+            span {
+              color: var(--primary-color-1);
+            }
+          }
+        }
+        textarea {
+          resize: none;
+          height: 165px;
+          border: 1px solid var(--other-color-4);
+          border-radius: 5px;
+          padding: 17px 25px;
+          @include p2Web;
+          @media screen and (max-width: 768px) {
+            padding: 8px 12px;
+            @include p2Mobile;
+            height: 99px;
+          }
+        }
+      }
+    }
+    .information {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .logo {
+        width: 78px;
+        color: var(--text-color-2);
+        @media screen and (max-width: 768px) {
+          width: 54px;
+        }
+      }
+      .copyright {
+        @include p3Web;
+        @media screen and (max-width: 768px) {
+          @include p1Mobile;
+          margin-top: 8px;
+          margin-bottom: 8px;
+        }
+      }
+      .social {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        .socialLogo {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            transform: scale(0.5);
+          }
+          @media screen and (max-width: 768px) {
+            width: 24px;
+            height: 24px;
+            img {
+              transform: scale(0.25);
+            }
+          }
+        }
+      }
+    }
+  }
+}
