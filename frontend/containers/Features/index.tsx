@@ -25,7 +25,7 @@ const Features = () => {
     <div className={styles.container}>
       <div className={`${styles.wrapper} section section--hidden`}>
         <div className={styles.video}>
-          <video src="/videos/yoga.mp4" />
+          <img src="/videos/yoya2_fallback.png" alt="Video image fallback" />
           <div className={styles.playIcon} onClick={playVideo}>
             <PlayIcon />
           </div>
