@@ -26,7 +26,7 @@ const Countdown = () => {
   ]
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
+      <div className={`${styles.wrapper} section section--hidden`}>
         <div className={styles.counts}>
           {
             values.map((value: { number: string, title: string, description: string }, i) => (

@@ -26,7 +26,7 @@ const Hero = () => {
       <div className={styles.ellipse4}>
         <Ellipse4 />
       </div>
-      <div className={styles.wrapper}>
+      <div className={`${styles.wrapper} section section--hidden`}>
         <div className={styles.introduce}>
           <h1>Yoga to Release Stress</h1>
           <p>Yoga is a way of life, rather than a chore. Counteract the stresses of modern life by becoming more mindful and compassionate.</p>

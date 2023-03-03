@@ -3,7 +3,7 @@ import styles from './Footer.module.scss'
 const Footer = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
+      <div className={`${styles.wrapper} section section--hidden`}>
         <div className={styles.box}>
           <div className={styles.contents}>
             <h2>Get in Touch With Us for Yoga Course.</h2>

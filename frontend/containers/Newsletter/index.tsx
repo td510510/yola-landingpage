@@ -5,7 +5,7 @@ import styles from './Newsletter.module.scss'
 const Newsletter = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
+      <div className={`${styles.wrapper} section section--hidden`}>
         <div className={styles.box}>
           <h4>Subscribe Our Newsletter</h4>
           <p>Subscribe our newsletter for further updates about us</p>
