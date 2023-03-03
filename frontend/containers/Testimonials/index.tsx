@@ -53,7 +53,7 @@ const Testimonials = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
+      <div className={`${styles.wrapper} section section--hidden`}>
         <div className={styles.slides}>
           <h2>What People Say About Us</h2>
           <div className={styles.slideBox}>

@@ -43,7 +43,7 @@ const Pricing = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
+      <div className={`${styles.wrapper} section section--hidden`}>
         <h2>Pick a Pricing Plan</h2>
         <p>Pick a pricing plan and get started your journey with us for build your body and mind</p>
         <div className={styles.cards}>

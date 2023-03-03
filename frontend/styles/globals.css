@@ -31,7 +31,7 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  overflow: hidden;
   text-rendering: optimizeSpeed;
   font-family: 'Inter', sans-serif;
 }
@@ -66,4 +66,17 @@ select {
   html {
     color-scheme: dark;
   }
+}
+
+.section {
+  transition: transform 1s, opacity 1s;
+}
+
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
+.lazy-img {
+  filter: blur(20px);
 }

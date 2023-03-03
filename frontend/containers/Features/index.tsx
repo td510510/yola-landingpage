@@ -23,7 +23,7 @@ const Features = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
+      <div className={`${styles.wrapper} section section--hidden`}>
         <div className={styles.video}>
           <video src="/videos/yoga.mp4" />
           <div className={styles.playIcon} onClick={playVideo}>

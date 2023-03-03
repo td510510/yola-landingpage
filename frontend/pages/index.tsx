@@ -7,8 +7,30 @@ import Pricing from '@/containers/Pricing'
 import Testimonials from '@/containers/Testimonials'
 import Newsletter from '@/containers/Newsletter'
 import Footer from '@/containers/Footer'
+import { useLayoutEffect } from 'react'
 
 export default function Home() {
+  useLayoutEffect(() => {
+    // Section effect with scrolling
+    const sections = document.querySelectorAll('.section');
+
+    function sectionObserverFunc(entries: any, observer: any) {
+      const [entry] = entries;
+      if (!entry.isIntersecting) return;
+      entry.target.classList.remove('section--hidden');
+      observer.unobserve(entry.target);
+    }
+
+    const sectionObserver = new IntersectionObserver(sectionObserverFunc, {
+      root: null,
+      threshold: 0.15,
+    });
+
+    sections.forEach(section => {
+      sectionObserver.observe(section);
+    });
+  }, [])
+
   return (
     <>
       <Head>

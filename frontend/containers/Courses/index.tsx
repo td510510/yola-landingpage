@@ -28,7 +28,7 @@ const Courses = () => {
   ]
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
+      <div className={`${styles.wrapper} section section--hidden`}>
         <h2>Popular Courses</h2>
         <p>Practice anywhere, anytime. Explore a new way to exercise and learn more about yourself. We are providing the best.</p>
         <div className={styles.courses}>
