@@ -8,6 +8,7 @@ import Testimonials from '@/containers/Testimonials'
 import Newsletter from '@/containers/Newsletter'
 import Footer from '@/containers/Footer'
 import { useLayoutEffect } from 'react'
+import Register from '@/components/Modals/Register'
 
 export default function Home() {
   useLayoutEffect(() => {

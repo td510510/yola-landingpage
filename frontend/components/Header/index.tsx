@@ -6,9 +6,13 @@ import Button from '../Button'
 import HamBurger from '../../public/svg/menu.svg'
 import CloseIcon from '../../public/svg/close-menu.svg'
 import styles from './Header.module.scss'
+import Register from '../Modals/Register'
+import Login from '../Modals/Login'
 
 const Header = () => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false)
+  const [isShowRegisterModal, setIsShowRegisterModal] = useState(false)
+  const [isShowLogIn, setIsShowLogIn] = useState(false)
   const mobileMenuRef = useRef(null)
   useOnClickOutside(mobileMenuRef, () => setIsShowMobileMenu(false))
 
@@ -26,6 +30,8 @@ const Header = () => {
 
   return (
     <header className={styles.container}>
+      {/* <Register /> */}
+      {/* <Login /> */}
       <div className={styles.wrapper}>
         <div className={styles.left}>
           <div className={styles.logo}>
