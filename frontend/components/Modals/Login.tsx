@@ -1,5 +1,6 @@
 import { FC, useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { useDispatch } from 'react-redux'
+import { login as loginAction } from '@/store/userSlice'
 import Button from '../Button'
 import CloseIcon from '../../public/svg/close-menu.svg'
 import styles from './Styles.module.scss'
@@ -8,14 +9,15 @@ import Cookies from 'js-cookie'
 
 interface LoginProps {
   closeLoginModal: () => void
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Login: FC<LoginProps> = ({ closeLoginModal }) => {
+const Login: FC<LoginProps> = ({ closeLoginModal, setIsLoading }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const [isActiveButton, setIsActiveButton] = useState(false)
-  const router = useRouter()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (username.trim().length > 0) {
@@ -33,6 +35,7 @@ const Login: FC<LoginProps> = ({ closeLoginModal }) => {
     setPassword(e.target.value);
   };
   const handleLogin = async () => {
+    setIsLoading(true)
     await axiosClient.post<any, any>(`/login`, {
       username, password
     })
@@ -40,10 +43,13 @@ const Login: FC<LoginProps> = ({ closeLoginModal }) => {
         Cookies.set('user', JSON.stringify(data))
         setErrorMessage('')
         closeLoginModal()
-        router.reload()
+        dispatch(loginAction(data))
+        Cookies.set('user', JSON.stringify(data));
+        setIsLoading(false)
       })
       .catch((err) => {
         setErrorMessage(err.response.data.message)
+        setIsLoading(false)
       })
   }
   return (

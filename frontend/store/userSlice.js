@@ -15,13 +15,10 @@ export const userSlice = createSlice({
     logout: (state) => {
       state.values = null;
     },
-    verify: (state, action) => {
-      state.values.verified = action.payload;
-    },
   },
 });
 
-export const { login, logout, verify } = userSlice.actions;
+export const { login, logout } = userSlice.actions;
 
 export const selectUser = (state) => state.user.values;
 

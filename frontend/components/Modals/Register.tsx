@@ -1,5 +1,7 @@
 import { useState, FC, useEffect } from 'react'
 import Cookies from 'js-cookie'
+import { useDispatch } from 'react-redux'
+import { login as loginAction } from '@/store/userSlice'
 import Button from '../Button'
 import axiosClient from '../../apis/axiosClient'
 import styles from './Styles.module.scss'
@@ -8,13 +10,15 @@ import CloseIcon from '../../public/svg/close-menu.svg'
 interface RegisterProps {
   closeRegisterModal: () => void
   showSuccessModal: () => void
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Register: FC<RegisterProps> = ({ closeRegisterModal, showSuccessModal }) => {
+const Register: FC<RegisterProps> = ({ closeRegisterModal, showSuccessModal, setIsLoading }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const [isActiveButton, setIsActiveButton] = useState(false)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (username.trim().length > 0) {
@@ -33,6 +37,7 @@ const Register: FC<RegisterProps> = ({ closeRegisterModal, showSuccessModal }) =
   };
 
   const register = async () => {
+    setIsLoading(true)
     await axiosClient.post<any, any>(`/register`, {
       username, password
     })
@@ -41,9 +46,13 @@ const Register: FC<RegisterProps> = ({ closeRegisterModal, showSuccessModal }) =
         setErrorMessage('')
         closeRegisterModal()
         showSuccessModal()
+        dispatch(loginAction(data))
+        Cookies.set('user', JSON.stringify(data));
+        setIsLoading(false)
       })
       .catch((err) => {
         setErrorMessage(err.response.data.message)
+        setIsLoading(false)
       })
   }
 

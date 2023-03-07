@@ -1,8 +1,7 @@
 import Image from 'next/image'
 import { useState, useRef, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectUser } from '@/store/userSlice'
-import { useRouter } from 'next/router'
+import { selectUser, logout } from '@/store/userSlice'
 import Cookies from 'js-cookie'
 import useOnClickOutside from '@/hooks/useOnClickOutside'
 import toggleScroll from '@/utils/toggleScroll'
@@ -13,6 +12,7 @@ import Register from '../Modals/Register'
 import Login from '../Modals/Login'
 import Success from '../Modals/Success'
 import styles from './Header.module.scss'
+import Loading from '../Loading'
 
 const Header = () => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false)
@@ -20,10 +20,11 @@ const Header = () => {
   const [isShowLoginModal, setIsShowLoginModal] = useState(false)
   const [isShowSuccessModal, setIsShowSuccessModal] = useState(false)
   const [isShowLogOutButton, setIsShowLogOutButton] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const mobileMenuRef = useRef(null)
   const user = useSelector(selectUser)
+  const dispatch = useDispatch()
   useOnClickOutside(mobileMenuRef, () => setIsShowMobileMenu(false))
-  const router = useRouter()
 
   useEffect(() => {
     toggleScroll(isShowMobileMenu || isShowLoginModal || isShowRegisterModal || isShowSuccessModal)
@@ -59,7 +60,6 @@ const Header = () => {
 
   const closeSuccessModal = () => {
     setIsShowSuccessModal(false)
-    router.reload()
   }
 
   const toggleLogOutButton = () => {
@@ -67,15 +67,17 @@ const Header = () => {
   }
 
   const removeUser = () => {
+    setIsShowLogOutButton(false)
+    dispatch(logout())
     Cookies.remove('user')
-    router.reload()
   }
 
   return (
     <header className={styles.container}>
-      {isShowRegisterModal && <Register closeRegisterModal={closeRegisterModal} showSuccessModal={showSuccessModal} />}
-      {isShowLoginModal && <Login closeLoginModal={closeLoginModal} />}
+      {isShowRegisterModal && <Register closeRegisterModal={closeRegisterModal} showSuccessModal={showSuccessModal} setIsLoading={setIsLoading} />}
+      {isShowLoginModal && <Login closeLoginModal={closeLoginModal} setIsLoading={setIsLoading} />}
       {isShowSuccessModal && <Success onClick={closeSuccessModal} />}
+      {isLoading && <Loading />}
       <div className={styles.wrapper}>
         <div className={styles.left}>
           <div className={styles.logo}>
