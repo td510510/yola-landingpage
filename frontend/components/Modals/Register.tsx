@@ -1,35 +1,62 @@
-import { useRef } from 'react'
+import { useState, FC, useEffect } from 'react'
+import Cookies from 'js-cookie'
 import Button from '../Button'
 import axiosClient from '../../apis/axiosClient'
 import styles from './Styles.module.scss'
 import CloseIcon from '../../public/svg/close-menu.svg'
 
-const Register = () => {
-  const usernameRef = useRef(null)
-  const passwordRef = useRef(null)
+interface RegisterProps {
+  closeRegisterModal: () => void
+  showSuccessModal: () => void
+}
+
+const Register: FC<RegisterProps> = ({ closeRegisterModal, showSuccessModal }) => {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [isActiveButton, setIsActiveButton] = useState(false)
+
+  useEffect(() => {
+    if (username.trim().length > 0) {
+      setIsActiveButton(true)
+    } else {
+      setIsActiveButton(false)
+    }
+  }, [username])
+
+  const handleUsernameChange = (e: any) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePasswordChange = (e: any) => {
+    setPassword(e.target.value);
+  };
+
   const register = async () => {
-    // alert(process.env.HOST_API)
-    await axiosClient.post<any, any>('/register', {
-      username: usernameRef, password: passwordRef
+    await axiosClient.post<any, any>(`/register`, {
+      username, password
     })
       .then((data) => {
-        alert(data)
+        Cookies.set('user', JSON.stringify(data))
+        setErrorMessage('')
+        closeRegisterModal()
+        showSuccessModal()
       })
       .catch((err) => {
-        console.log(err)
+        setErrorMessage(err.response.data.message)
       })
   }
 
-
   return (
     <div className={styles.container}>
-      <div className={styles.closeIcon}>
-        <CloseIcon />
-      </div>
-      <form>
-        <input type="text" name="" placeholder='Username' maxLength={256} ref={usernameRef} />
-        <input type="password" name="" placeholder='Password' maxLength={256} ref={passwordRef} />
-        <Button onClick={register} classStyles={styles.button} text='Sign Up' />
+      <form className={styles.form}>
+        <div className={styles.closeIcon} onClick={closeRegisterModal}>
+          <CloseIcon />
+        </div>
+        <input type="text" name="" placeholder='Username' maxLength={256} onChange={handleUsernameChange} />
+        <input type="password" name="" placeholder='Password' maxLength={256} onChange={handlePasswordChange} />
+        <div className={styles.error}>{errorMessage}</div>
+        <Button classStyles={`${styles.button} ${isActiveButton ? styles.active : styles.disable}`} text='Sign Up' onClick={register} />
       </form>
     </div>
   )
