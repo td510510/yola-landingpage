@@ -85,6 +85,11 @@
     }
     .notification {
       text-align: center;
+      color: var(--text-color-2);
+      @include p3Web;
+      @media screen and (max-width: 768px) {
+        @include p2Mobile;
+      }
     }
     .error {
       color: red;
