@@ -35,7 +35,7 @@ export default function Home() {
     <>
       <Head>
         <title>Yola Yoga</title>
-        <meta name="description" content="Yoga to Release Stress" />
+        <meta name="description" content="Yoga to Release Stress. Join now!" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
