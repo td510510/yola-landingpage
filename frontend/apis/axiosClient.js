@@ -7,26 +7,16 @@ const axiosClient = axios.create({
   },
 });
 
-axiosClient.interceptors.request.use((config) => {
-  // const token = cookie.get('token_rgs_pt');
-  // if (token) {
-  //   config.headers.Authorization = `Bearer ${token}`;
-  // }
-  alert('hhh');
-  return config;
-});
-
-axiosClient.interceptors.response
-  .use
-  // (response) => {
-  //   if (response && response.data) {
-  //     return response.data;
-  //   }
-  //   return response;
-  // },
-  // (error) => {
-  //   throw error;
-  // }
-  ();
+axiosClient.interceptors.response.use(
+  (response) => {
+    if (response && response.data) {
+      return response.data;
+    }
+    return response;
+  },
+  (error) => {
+    throw error;
+  }
+);
 
 export default axiosClient;

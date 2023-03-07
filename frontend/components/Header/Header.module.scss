@@ -65,6 +65,7 @@
       display: flex;
       align-items: center;
       margin-right: 21px;
+      position: relative;
       .signIn {
         @include h8Web;
         margin-right: min(calc(36 / 1440 * 100vw), 36px);
@@ -95,6 +96,36 @@
       }
       .hamburger {
         display: none;
+        cursor: pointer;
+      }
+      .userDesktop {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        span {
+          @include p2Web;
+          margin-right: 10px;
+          color: var(--text-color-2);
+        }
+        .userIcon {
+          width: 30px;
+        }
+      }
+      .logoutButton {
+        position: absolute;
+        @include p2Web;
+        z-index: 2;
+        cursor: pointer;
+        top: 45px;
+        right: 0;
+        width: 100px;
+        height: 40px;
+        @media screen and (max-width: 768px) {
+          width: 70px;
+          height: 35px;
+          right: 35px;
+          @include p1Mobile;
+        }
       }
     }
   }
@@ -141,6 +172,7 @@
     .closeIcon {
       display: inline-block;
       margin-bottom: 20px;
+      cursor: pointer;
     }
     &.hide {
       transform: translateX(100%);
