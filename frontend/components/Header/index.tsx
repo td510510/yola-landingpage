@@ -26,8 +26,8 @@ const Header = () => {
   const router = useRouter()
 
   useEffect(() => {
-    toggleScroll(isShowMobileMenu || isShowLoginModal || isShowRegisterModal)
-  }, [isShowMobileMenu, isShowLoginModal, isShowRegisterModal])
+    toggleScroll(isShowMobileMenu || isShowLoginModal || isShowRegisterModal || isShowSuccessModal)
+  }, [isShowMobileMenu, isShowLoginModal, isShowRegisterModal, isShowSuccessModal])
 
   const showMobileMenu = () => {
     setIsShowMobileMenu(true)
