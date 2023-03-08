@@ -13,7 +13,7 @@ const Success: FC<SuccessProps> = ({ onClick }) => {
         <div className={styles.closeIcon} onClick={onClick}>
           <CloseIcon />
         </div>
-        <div className={styles.notification}>Register successfully! Please Login.</div>
+        <div className={styles.notification}>Register successfully!</div>
       </form>
     </div>
   )
